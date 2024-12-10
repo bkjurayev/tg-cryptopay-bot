@@ -528,8 +528,8 @@ const start = async () => {
         //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
         // }
         if (msg.data === 'correctly') {
-            await bot.sendMessage(userCorrectly, 'Tabriklaymiz! \nSiz uchun joy band qilindi. \nSiz uchun mahsus linklarni jo\'natishdan mamnunmiz! \n\nhttps://t.me/+_uxP3WlGEeFhNmIy \nasosiy kanal, jonli efir, anons, loyiha yangiliklari qo\'yilib boriladi. \n\nhttps://t.me/+U_soBohVVQgyMzQy \nTreyding haqida, signallar, tahlillar, grafik shu yerda \n\nhttps://t.me/+kIZffY1HlOVkYmEy \nCHAT yoki guruh.)')
-            await bot.editMessageText('Xush kelibsiz! \nO\'zingizga kerakli bo\'limni tanlang↙️', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+            await bot.sendMessage(userCorrectly, "🔰To'lovingizni qabul qildik, quyidagi linkka bosib, jamoaga qo'shiling: https://t.me/+_LiD7WORWdgwYjZk")
+            // await bot.editMessageText('Xush kelibsiz! \nO\'zingizga kerakli bo\'limni tanlang↙️', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
         }
         if (msg.data === 'incorrectly') {
             await bot.sendMessage(userCorrectly, 'Afsuski to\'lov qabul qilinmaganligi sabablik qayta urinib ko\'rishingizni so\'raymiz!)')
