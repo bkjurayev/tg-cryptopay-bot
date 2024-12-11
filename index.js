@@ -24,7 +24,12 @@ const start = async () => {
                 inline_keyboard: [
                     [
                         {
-                            text: 'Tasdiqlash', callback_data: 'correctly'
+                            text: 'Jamoaga qo\'shish', callback_data: 'addtoteam'
+                        }
+                    ],
+                    [
+                        {
+                            text: 'Carusel a\'zosi qilish', callback_data: 'addcarusel'
                         }
                     ],
                     [
@@ -527,9 +532,11 @@ const start = async () => {
         //         ]
         //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
         // }
-        if (msg.data === 'correctly') {
+        if (msg.data === 'addtoteam') {
             await bot.sendMessage(userCorrectly, "🔰To'lovingizni qabul qildik, quyidagi linkka bosib, jamoaga qo'shiling: https://t.me/+_LiD7WORWdgwYjZk")
-            // await bot.editMessageText('Xush kelibsiz! \nO\'zingizga kerakli bo\'limni tanlang↙️', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+        }
+        if (msg.data === 'addcarusel') {
+            await bot.sendMessage(userCorrectly, "🔰To'lovingizni qabul qildik, quyidagi linkka bosib, signal-kanalga qo'shiling: https://t.me/+yHDn6d7_gZEyNDg0")
         }
         if (msg.data === 'incorrectly') {
             await bot.sendMessage(userCorrectly, 'Afsuski to\'lov qabul qilinmaganligi sabablik qayta urinib ko\'rishingizni so\'raymiz!)')
