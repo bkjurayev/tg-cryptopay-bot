@@ -1,4 +1,6 @@
 const TelegramApi = require('node-telegram-bot-api')
+const InlineKeyboardButton= require('node-telegram-bot-api')
+const InlineKeyboardMarkup = require('node-telegram-bot-api')
 
 const CHAT_ID = "-4777464657";
 // const CHAT_ID = "-1002013639929";
@@ -47,22 +49,22 @@ const start = async () => {
 
         try {
             if (text === '/start') {
-                await bot.sendMessage(chatId, "Xush kelibsiz! \nO'zingizga kerakli bo'limni tanlang↙️", {
+                await bot.sendMessage(chatId, "Xush kelibsiz! \nO'zingizga kerakli bo'limni tanlang ↙️", {
                     reply_markup: {
                         inline_keyboard: [
                             [
                                 {
-                                    text: 'Abu Trading jamoasi', callback_data: 'abuteam'
+                                    text: '📚 Trading cours', callback_data: 'tradingcours'
                                 }
                             ],
                             [
                                 {
-                                    text: 'Abu Trading Carusel', callback_data: 'carusel'
+                                    text: '🔍 Kriptovalyutani tekshirish',url: 't.me/HukmCrypto_bot'
                                 }
                             ],
                             [
                                 {
-                                    text: `❓ Menejer bilan bog'lanish`, callback_data: 'help'
+                                    text: `❓ Menejer bilan bog'lanish`,url: 't.me/Firnas_eth'
                                 }
                             ]
                         ]
@@ -86,43 +88,40 @@ const start = async () => {
         // userCorrectly = msg.chat.id
 
         if (msg.data === 'home') {
-            await bot.editMessageText('Xush kelibsiz! \nO\'zingizga kerakli bo\'limni tanlang↙️', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+            await bot.editMessageText('Xush kelibsiz! \nO\'zingizga kerakli bo\'limni tanlang ↙️', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
             bot.editMessageReplyMarkup({
                 inline_keyboard: [
                     [
                         {
-                            text: 'Abu Trading jamoasi', callback_data: 'abuteam'
+                            text: '📚 Trading cours', callback_data: 'tradingcours'
                         }
                     ],
                     [
                         {
-                            text: 'Abu Trading Carusel', callback_data: 'carusel'
+                            text: '🔍 Kriptovalyutani tekshirish',url: 't.me/HukmCrypto_bot'
                         }
                     ],
                     [
                         {
-                            text: `Yordam ❓`, callback_data: 'help'
+                            text: `❓ Menejer bilan bog'lanish`,url: 't.me/Firnas_eth'
                         }
                     ]
                 ]
             }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
 
         }
-        if (msg.data === 'abuteam') {
-            await bot.editMessageText(`Jamoaga qabul ochishdan avval yangiliklar kiritildi, xo'sh jamoaga qo'shilgan odam qanday yo'nalishlarni o'rganadi: 
-                                        \n\n🔘 Education (kursda yozib olingan darsliklar + 6 strategiya bo'yicha praktikum darslar) 
-                                        \n🔘 Newsroom (Joseph Crypto makroekonomika va umuman fundament yangiliklar bo'yicha tahlillari) 
-                                        \n🔘 Signal (Abu Juvayriya va Firnas tomonidan altkoinlar bo'yicha signallar) 
-                                        \n🔘 Jamoa oldi bollari (o'quvchilar o'zlarining tahlillari va signallari bilan bo'lishadigan bo'lim - profi treyder bo'lib shakllanishni eng qaynoq yeri) 
-                                        \nQo'shimcha keyslar: \nhttps://t.me/firnascrypto/5320?single \nhttps://t.me/firnascrypto/s/128 \nhttps://t.me/firnascrypto/5759
-                                        \n\n❗️Jamoaga qo'shilish muddati cheklanmaydi, qo'shimcha to'lovlar yo'q
-                                        \nJamoaga qo'shilish - 250 USDT
-            `, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+        if (msg.data === 'tradingcours') {
+            await bot.editMessageText('Xush kelibsiz! \nO\'zingizga kerakli bo\'limni tanlang ↙️', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
             bot.editMessageReplyMarkup({
                 inline_keyboard: [
                     [
                         {
-                            text: 'To\'lovni amalga oshirish', callback_data: 'abuteampay'
+                            text: 'Jamoaviy onlayn-kurs', callback_data: 'grouponlineteam'
+                        }
+                    ],
+                    [
+                        {
+                            text: 'Individual kurs (1:1)', callback_data: 'indivcours'
                         }
                     ],
                     [
@@ -132,19 +131,74 @@ const start = async () => {
                     ]
                 ]
             }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+
         }
-        if (msg.data === 'carusel') {
-            await bot.editMessageText(`Ushbu kanal Abu Juvayriya va Firnas bilan birgalikda o'zlarining savdo g'oyalarini, qaysi altcoinlarga kirayotgani va sotishlarni aytib turishadi.  \n\n\nBiz ushbu kanalni - ish bilan band yoki yangilar uchun tavsiya qilamiz. Sizdan kapitalni bizning tavsiyaga rioya qilib boshqarish. \n\n\nTariflar bilan tanishing↙️ \n\n3 oylik obuna🔰 99.00 USDT \n\n1 yillik obuna🔰 250.00 USDT`, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+        // if (msg.data === 'abuteam') {
+        //     await bot.editMessageText(`Jamoaga qabul ochishdan avval yangiliklar kiritildi, xo'sh jamoaga qo'shilgan odam qanday yo'nalishlarni o'rganadi: 
+        //                                 \n\n🔘 Education (kursda yozib olingan darsliklar + 6 strategiya bo'yicha praktikum darslar) 
+        //                                 \n🔘 Newsroom (Joseph Crypto makroekonomika va umuman fundament yangiliklar bo'yicha tahlillari) 
+        //                                 \n🔘 Signal (Abu Juvayriya va Firnas tomonidan altkoinlar bo'yicha signallar) 
+        //                                 \n🔘 Jamoa oldi bollari (o'quvchilar o'zlarining tahlillari va signallari bilan bo'lishadigan bo'lim - profi treyder bo'lib shakllanishni eng qaynoq yeri) 
+        //                                 \nQo'shimcha keyslar: \nhttps://t.me/firnascrypto/5320?single \nhttps://t.me/firnascrypto/s/128 \nhttps://t.me/firnascrypto/5759
+        //                                 \n\n❗️Jamoaga qo'shilish muddati cheklanmaydi, qo'shimcha to'lovlar yo'q
+        //                                 \nJamoaga qo'shilish - 250 USDT
+        //     `, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+        //     bot.editMessageReplyMarkup({
+        //         inline_keyboard: [
+        //             [
+        //                 {
+        //                     text: 'To\'lovni amalga oshirish', callback_data: 'abuteampay'
+        //                 }
+        //             ],
+        //             [
+        //                 {
+        //                     text: '◀ Orqaga', callback_data: 'home'
+        //                 }
+        //             ]
+        //         ]
+        //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+        // }
+        // if (msg.data === 'carusel') {
+        //     await bot.editMessageText(`Ushbu kanal Abu Juvayriya va Firnas bilan birgalikda o'zlarining savdo g'oyalarini, qaysi altcoinlarga kirayotgani va sotishlarni aytib turishadi.  \n\n\nBiz ushbu kanalni - ish bilan band yoki yangilar uchun tavsiya qilamiz. Sizdan kapitalni bizning tavsiyaga rioya qilib boshqarish. \n\n\nTariflar bilan tanishing↙️ \n\n3 oylik obuna🔰 99.00 USDT \n\n1 yillik obuna🔰 250.00 USDT`, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+        //     bot.editMessageReplyMarkup({
+        //         inline_keyboard: [
+        //             [
+        //                 {
+        //                     text: 'To\'lovni amalga oshirish', callback_data: 'abuteampay'
+        //                 }
+        //             ],
+        //             [
+        //                 {
+        //                     text: '◀ Orqaga', callback_data: 'home'
+        //                 }
+        //             ]
+        //         ]
+        //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+        // }
+        if (msg.data === 'grouponlineteam') {
+            await bot.editMessageText(`🔰 Ayni vaqtda jamoaviy onlayn-kurs bizda yo'q!)`, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
             bot.editMessageReplyMarkup({
                 inline_keyboard: [
                     [
                         {
-                            text: 'To\'lovni amalga oshirish', callback_data: 'abuteampay'
+                            text: '◀ Orqaga', callback_data: 'tradingcours'
+                        }
+                    ]
+                ]
+            }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+        }
+        if (msg.data === 'indivcours') {
+            await bot.editMessageText(`🔰 Ushbu yo'nalishda Firnas bilan treyding va kriptovalyutalarni o'rganish imkoniyati mavjud. Aynan xozir ushbu yo'nalishdagi kurs bo'yicha ma'lumotni menejerdan so'rashingizni iltimos qilib qolamiz.`, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+            bot.editMessageReplyMarkup({
+                inline_keyboard: [
+                    [
+                        {
+                            text: `❓ Menejer bilan bog'lanish`,url: 't.me/Firnas_eth'
                         }
                     ],
                     [
                         {
-                            text: '◀ Orqaga', callback_data: 'home'
+                            text: '◀ Orqaga', callback_data: 'tradingcours'
                         }
                     ]
                 ]
@@ -255,8 +309,20 @@ const start = async () => {
                 ]
             }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
         }
+        // if (msg.data === 'help') {
+        //     await bot.editMessageText(`🔰Ushbu bot @firnascrypto kanaliga tegishlidir \n\n@firnascrypto - Firnas K. o'zining treyding va kriptovalyutlarga bog'liq fikrlarini ulashib boradigan asosiy kanal, shuningdek jamoasi bilan tuzgan boshqa loyihalari bilan tanishing⤵️ \n\n@Crypto62481 - Crypto va Web3'ga oid so'nggi yangiliklarni ulashib boruvchi kanal. \n\n@hukmcrypto_bot - Kriptovalyutalar hukmini tekshirish uchun bot (manbalari keltirilgan, 500+ kriptovalyuta, 13 fatvo) \n\nhttps://t.me/+QYhjyS_wHIZiMjRi (NEO CHAT) \nTreyding, altcoinlar va umuman fikr alishish hamda Firnas bilan suhbat uchun chat. \n\nYuqoridagi loyihalar barchasi bepuldir, pullik guruhlarda boshqa mutahassislar va materiallar joylangani bilan farqlanib turadi, botdan foydalanishda quyidagi qoidalar bilan tanishing: \nhttps://telegra.ph/firnascryptobotqoidalar-12-01 \n\nAdminlar bilan bog'lanish uchun: \n@firnas_eth / @feedbackfirnasbot \n\n(❕Iltimos, adminlar bilan ish borasida bog'laning, treyding va birjalar bo'yicha, tehnik savollar uchun NEO CHAT ga murojaat qiling)`, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+        //     bot.editMessageReplyMarkup({
+        //         inline_keyboard: [
+        //             [
+        //                 {
+        //                     text: '◀ Orqaga', callback_data: 'home'
+        //                 }
+        //             ]
+        //         ]
+        //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+        // }
         if (msg.data === 'help') {
-            await bot.editMessageText(`🔰Ushbu bot @firnascrypto kanaliga tegishlidir \n\n@firnascrypto - Firnas K. o'zining treyding va kriptovalyutlarga bog'liq fikrlarini ulashib boradigan asosiy kanal, shuningdek jamoasi bilan tuzgan boshqa loyihalari bilan tanishing⤵️ \n\n@Crypto62481 - Crypto va Web3'ga oid so'nggi yangiliklarni ulashib boruvchi kanal. \n\n@hukmcrypto_bot - Kriptovalyutalar hukmini tekshirish uchun bot (manbalari keltirilgan, 500+ kriptovalyuta, 13 fatvo) \n\nhttps://t.me/+QYhjyS_wHIZiMjRi (NEO CHAT) \nTreyding, altcoinlar va umuman fikr alishish hamda Firnas bilan suhbat uchun chat. \n\nYuqoridagi loyihalar barchasi bepuldir, pullik guruhlarda boshqa mutahassislar va materiallar joylangani bilan farqlanib turadi, botdan foydalanishda quyidagi qoidalar bilan tanishing: \nhttps://telegra.ph/firnascryptobotqoidalar-12-01 \n\nAdminlar bilan bog'lanish uchun: \n@firnas_eth / @feedbackfirnasbot \n\n(❕Iltimos, adminlar bilan ish borasida bog'laning, treyding va birjalar bo'yicha, tehnik savollar uchun NEO CHAT ga murojaat qiling)`, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+            await bot.editMessageText(`🔰 Menejer bilan bog'lanish: \n\n@firnas_eth`, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
             bot.editMessageReplyMarkup({
                 inline_keyboard: [
                     [
@@ -267,245 +333,6 @@ const start = async () => {
                 ]
             }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
         }
-
-
-        // if (msg.data === 'categoryone') {
-        //     await bot.editMessageText('"CryptoSalam" yopiq guruhda siz turli imkoniyatlarga ega tariflar ichidan o\'zingizga munosibini tanlab olishingiz mumkin! 👇', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        //     bot.editMessageReplyMarkup({
-        //         inline_keyboard: [
-        //             [
-        //                 {
-        //                     text: 'Tariflar 📜', callback_data: 'categoryonetarif'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: '◀ Orqaga', callback_data: 'pay'
-        //                 }
-        //             ]
-        //         ]
-        //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        // }
-        // if (msg.data === 'categoryonetarif') {
-        //     await bot.editMessageText('Amaldagi tariflar: \n\n🔰 Tarif "1 Oylik" Narx: 69$ \n\n🔰 Tarif "3 Oylik" Narx: 170$ (-16%) \n\n🔰 Tarif "6 Oylik" Narx: 299$ (-24%) \n\n🔰 Tarif "Chegirmasiz" Tarif: 800$ \n\nTariflardan birini tanlang va yanada to\'liqroq ma\'lumot oling', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        //     bot.editMessageReplyMarkup({
-        //         inline_keyboard: [
-        //             [
-        //                 {
-        //                     text: '1 OYLIK ', callback_data: 'paymethonemonth'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: '3 OYLIK', callback_data: 'paymeththreemonth'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: '6 OYLIK', callback_data: 'paymethsixmonth'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: 'CHEGIRMASIZ', callback_data: 'paymethnotsale'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: '◀ Orqaga', callback_data: 'categoryone'
-        //                 }
-        //             ]
-        //         ]
-        //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        // }
-        // if (msg.data === 'paymethonemonth') {
-        //     await bot.editMessageText('1 oylik 🔰 69$ \n CryptoSalam asosiy kanali, muhokama guruhi, efirlar', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        //     bot.editMessageReplyMarkup({
-        //         inline_keyboard: [
-        //             [
-        //                 {
-        //                     text: '💲 To\'lov uslublari', callback_data: 'paycategory'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: '📝 Promocode kiriting', callback_data: 'promocode'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: '◀ Orqaga', callback_data: 'categoryonetarif'
-        //                 }
-        //             ]
-        //         ]
-        //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        // }
-        // if (msg.data === 'paymeththreemonth') {
-        //     await bot.editMessageText('3 oylik 🔰 170$ (-16%) \n CryptoSalam asosiy kanali, muhokama guruhi, efirlar', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        //     bot.editMessageReplyMarkup({
-        //         inline_keyboard: [
-        //             [
-        //                 {
-        //                     text: '💲 To\'lov uslublari', callback_data: 'paycategory'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: '📝 Promocode kiriting', callback_data: 'promocode'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: '◀ Orqaga', callback_data: 'categoryonetarif'
-        //                 }
-        //             ]
-        //         ]
-        //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        // }
-        // if (msg.data === 'paymethsixmonth') {
-        //     await bot.editMessageText('6 oylik 🔰 299$ (-24%) \n CryptoSalam asosiy kanali, muhokama guruhi, efirlar', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        //     bot.editMessageReplyMarkup({
-        //         inline_keyboard: [
-        //             [
-        //                 {
-        //                     text: '💲 To\'lov uslublari', callback_data: 'paycategory'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: '📝 Promocode kiriting', callback_data: 'promocode'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: '◀ Orqaga', callback_data: 'categoryonetarif'
-        //                 }
-        //             ]
-        //         ]
-        //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        // }
-        // if (msg.data === 'paymethnotsale') {
-        //     await bot.editMessageText('Chegirmasiz 💠 800$ \n CryptoSalam barcha resurslari va adminlar bilan doimiy aloqa', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        //     bot.editMessageReplyMarkup({
-        //         inline_keyboard: [
-        //             [
-        //                 {
-        //                     text: '💲 To\'lov uslublari', callback_data: 'paycategory'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: '📝 Promocode kiriting', callback_data: 'promocode'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: '◀ Orqaga', callback_data: 'categoryonetarif'
-        //                 }
-        //             ]
-        //         ]
-        //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        // }
-        // if (msg.data === 'paycategory') {
-        //     await bot.editMessageText('To\'lov amalga oshirish uchun o\'zingizga mos usulni tanlang!', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        //     bot.editMessageReplyMarkup({
-        //         inline_keyboard: [
-        //             [
-        //                 {
-        //                     text: '💳 Crypto orqali (USDT)', callback_data: 'cryptopay'
-        //                 }
-        //             ],
-        //             // [
-        //             //     {
-        //             //         text: '🔁 Boshqa usullar', callback_data: 'promocode'
-        //             //     }
-        //             // ],
-        //             [
-        //                 {
-        //                     text: '◀ Orqaga', callback_data: 'categoryonetarif'
-        //                 }
-        //             ]
-        //         ]
-        //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        // }
-        // if (msg.data === 'cryptopay') {
-        //     await bot.editMessageText('Crypto orqali to\'lov amalga oshirish ularning turlari:', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        //     bot.editMessageReplyMarkup({
-        //         inline_keyboard: [
-        //             [
-        //                 {
-        //                     text: 'USDT (🔴TRC20)', callback_data: 'trc20'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: 'USDT (🔵Arbitrum)', callback_data: 'arbitrum'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: 'USDT (🟣Polygon)', callback_data: 'polygon'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: '◀ Orqaga', callback_data: 'paycategory'
-        //                 }
-        //             ]
-        //         ]
-        //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        // }
-        // if (msg.data === 'trc20') {
-        //     await bot.editMessageText('TEoo4PJ2YKN6Wz2BqYTqQcWW3q8ANYpKc9', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        //     bot.editMessageReplyMarkup({
-        //         inline_keyboard: [
-        //             [
-        //                 {
-        //                     text: '✅ To\'landi', callback_data: 'successpay'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: 'Bekor qilish', callback_data: 'home'
-        //                 }
-        //             ]
-        //         ]
-        //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        // }
-        // if (msg.data === 'arbitrum') {
-        //     await bot.editMessageText('0xb13cCD3E207980C1F1B2546dAEff6d28A7B97052', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        //     bot.editMessageReplyMarkup({
-        //         inline_keyboard: [
-        //             [
-        //                 {
-        //                     text: '✅ To\'landi', callback_data: 'successpay'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: 'Bekor qilish', callback_data: 'home'
-        //                 }
-        //             ]
-        //         ]
-        //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        // }
-        // if (msg.data === 'polygon') {
-        //     await bot.editMessageText('0xb13cCD3E207980C1F1B2546dAEff6d28A7B97052', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        //     bot.editMessageReplyMarkup({
-        //         inline_keyboard: [
-        //             [
-        //                 {
-        //                     text: '✅ To\'landi', callback_data: 'successpay'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: 'Bekor qilish', callback_data: 'home'
-        //                 }
-        //             ]
-        //         ]
-        //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        // }
         if (msg.data === 'successpay') {
             isPaid = true
             await bot.editMessageText('To\'lov amalga oshirganingizdan so\'ng \nchekni suratini jo\'natishingizni so\'raymiz (Screenshot)', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
@@ -519,19 +346,6 @@ const start = async () => {
                 ]
             }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
         }
-        // if (msg.data === 'promocode') {
-        //     isPaid = true
-        //     await bot.editMessageText('Promocode kiritishingiz mumkin! 👇', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        //     bot.editMessageReplyMarkup({
-        //         inline_keyboard: [
-        //             [
-        //                 {
-        //                     text: '◀ Orqaga', callback_data: 'categoryonetarif'
-        //                 }
-        //             ]
-        //         ]
-        //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        // }
         if (msg.data === 'addtoteam') {
             await bot.sendMessage(userCorrectly, "🔰To'lovingizni qabul qildik, quyidagi linkka bosib, jamoaga qo'shiling: https://t.me/+_LiD7WORWdgwYjZk")
         }
