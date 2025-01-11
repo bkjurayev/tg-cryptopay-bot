@@ -64,9 +64,22 @@ const start = async () => {
                             ],
                             [
                                 {
+                                    text: '♾️ Jamoa', callback_data: 'abuteam'
+                                }
+                            ],
+                            [
+                                {
                                     text: `❓ Menejer bilan bog'lanish`,url: 't.me/Firnas_eth'
                                 }
-                            ]
+                            ],
+                            [
+                                {
+                                    text: `NEO`,url: 'https://t.me/layergroupcrypto'
+                                },
+                                {
+                                    text: `YOUTUBE`,url: 'https://youtube.com/@tradewithmuslim?feature=shared' 
+                                }
+                            ],
                         ]
                     }
                 })
@@ -103,6 +116,11 @@ const start = async () => {
                     ],
                     [
                         {
+                            text: '♾️ Jamoa', callback_data: 'abuteam'
+                        }
+                    ],
+                    [
+                        {
                             text: `❓ Menejer bilan bog'lanish`,url: 't.me/Firnas_eth'
                         }
                     ]
@@ -133,31 +151,31 @@ const start = async () => {
             }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
 
         }
-        // if (msg.data === 'abuteam') {
-        //     await bot.editMessageText(`Jamoaga qabul ochishdan avval yangiliklar kiritildi, xo'sh jamoaga qo'shilgan odam qanday yo'nalishlarni o'rganadi: 
-        //                                 \n\n🔘 Education (kursda yozib olingan darsliklar + 6 strategiya bo'yicha praktikum darslar) 
-        //                                 \n🔘 Newsroom (Joseph Crypto makroekonomika va umuman fundament yangiliklar bo'yicha tahlillari) 
-        //                                 \n🔘 Signal (Abu Juvayriya va Firnas tomonidan altkoinlar bo'yicha signallar) 
-        //                                 \n🔘 Jamoa oldi bollari (o'quvchilar o'zlarining tahlillari va signallari bilan bo'lishadigan bo'lim - profi treyder bo'lib shakllanishni eng qaynoq yeri) 
-        //                                 \nQo'shimcha keyslar: \nhttps://t.me/firnascrypto/5320?single \nhttps://t.me/firnascrypto/s/128 \nhttps://t.me/firnascrypto/5759
-        //                                 \n\n❗️Jamoaga qo'shilish muddati cheklanmaydi, qo'shimcha to'lovlar yo'q
-        //                                 \nJamoaga qo'shilish - 250 USDT
-        //     `, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        //     bot.editMessageReplyMarkup({
-        //         inline_keyboard: [
-        //             [
-        //                 {
-        //                     text: 'To\'lovni amalga oshirish', callback_data: 'abuteampay'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: '◀ Orqaga', callback_data: 'home'
-        //                 }
-        //             ]
-        //         ]
-        //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        // }
+        if (msg.data === 'abuteam') {
+            await bot.editMessageText(`Jamoaga qabul ochishdan avval yangiliklar kiritildi, xo'sh jamoaga qo'shilgan odam qanday yo'nalishlarni o'rganadi: 
+                                        \n\n🔘 Education (kursda yozib olingan darsliklar + 6 strategiya bo'yicha praktikum darslar) 
+                                        \n🔘 Newsroom (Joseph Crypto makroekonomika va umuman fundament yangiliklar bo'yicha tahlillari) 
+                                        \n🔘 Signal (Abu Juvayriya va Firnas tomonidan altkoinlar bo'yicha signallar) 
+                                        \n🔘 Jamoa oldi bollari (o'quvchilar o'zlarining tahlillari va signallari bilan bo'lishadigan bo'lim - profi treyder bo'lib shakllanishni eng qaynoq yeri) 
+                                        \nQo'shimcha keyslar: \nhttps://t.me/firnascrypto/5320?single \nhttps://t.me/firnascrypto/s/128 \nhttps://t.me/firnascrypto/5759
+                                        \n\n❗️Jamoaga qo'shilish muddati cheklanmaydi, qo'shimcha to'lovlar yo'q
+                                        \nJamoaga qo'shilish - 250 USDT
+            `, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+            bot.editMessageReplyMarkup({
+                inline_keyboard: [
+                    [
+                        {
+                            text: 'To\'lovni amalga oshirish', callback_data: 'abuteampay'
+                        }
+                    ],
+                    [
+                        {
+                            text: '◀ Orqaga', callback_data: 'home'
+                        }
+                    ]
+                ]
+            }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+        }
         // if (msg.data === 'carusel') {
         //     await bot.editMessageText(`Ushbu kanal Abu Juvayriya va Firnas bilan birgalikda o'zlarining savdo g'oyalarini, qaysi altcoinlarga kirayotgani va sotishlarni aytib turishadi.  \n\n\nBiz ushbu kanalni - ish bilan band yoki yangilar uchun tavsiya qilamiz. Sizdan kapitalni bizning tavsiyaga rioya qilib boshqarish. \n\n\nTariflar bilan tanishing↙️ \n\n3 oylik obuna🔰 99.00 USDT \n\n1 yillik obuna🔰 250.00 USDT`, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
         //     bot.editMessageReplyMarkup({
