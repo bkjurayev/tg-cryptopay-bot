@@ -59,12 +59,12 @@ const start = async () => {
                             ],
                             [
                                 {
-                                    text: '🔍 Kriptovalyutani tekshirish',url: 't.me/HukmCrypto_bot'
+                                    text: '♾️ JAMOA', callback_data: 'abuteam'
                                 }
                             ],
                             [
                                 {
-                                    text: '♾️ Jamoa', callback_data: 'abuteam'
+                                    text: '🔍 Kriptovalyutani tekshirish',url: 't.me/HukmCrypto_bot'
                                 }
                             ],
                             [
@@ -111,12 +111,12 @@ const start = async () => {
                     ],
                     [
                         {
-                            text: '🔍 Kriptovalyutani tekshirish',url: 't.me/HukmCrypto_bot'
+                            text: '♾️ JAMOA', callback_data: 'abuteam'
                         }
                     ],
                     [
                         {
-                            text: '♾️ Jamoa', callback_data: 'abuteam'
+                            text: '🔍 Kriptovalyutani tekshirish',url: 't.me/HukmCrypto_bot'
                         }
                     ],
                     [
@@ -128,9 +128,38 @@ const start = async () => {
             }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
 
         }
+        if (msg.data === 'home2') {
+            await bot.sendMessage(msg.message.chat.id, "Xush kelibsiz! \nO'zingizga kerakli bo'limni tanlang ↙️", {
+                reply_markup: {
+                    inline_keyboard: [
+                        [
+                            {
+                                text: '📚 Trading cours', callback_data: 'tradingcours'
+                            }
+                        ],
+                        [
+                            {
+                                text: '♾️ JAMOA', callback_data: 'abuteam'
+                            }
+                        ],
+                        [
+                            {
+                                text: '🔍 Kriptovalyutani tekshirish',url: 't.me/HukmCrypto_bot'
+                            }
+                        ],
+                        [
+                            {
+                                text: `❓ Menejer bilan bog'lanish`,url: 't.me/Firnas_eth'
+                            }
+                        ]
+                    ]
+                }
+            }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+
+        }
         if (msg.data === 'tradingcours') {
             await bot.editMessageText('Xush kelibsiz! \nO\'zingizga kerakli bo\'limni tanlang ↙️', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-            bot.editMessageReplyMarkup({
+            await bot.editMessageReplyMarkup({
                 inline_keyboard: [
                     [
                         {
@@ -151,59 +180,96 @@ const start = async () => {
             }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
 
         }
+        if (msg.data === 'tradingcours2') {
+            await bot.sendMessage(msg.message.chat.id, "Xush kelibsiz! \nO'zingizga kerakli bo'limni tanlang ↙️", {
+                reply_markup: {
+                    inline_keyboard: [
+                        [
+                            {
+                                text: 'Jamoaviy onlayn-kurs', callback_data: 'grouponlineteam'
+                            }
+                        ],
+                        [
+                            {
+                                text: 'Individual kurs (1:1)', callback_data: 'indivcours'
+                            }
+                        ],
+                        [
+                            {
+                                text: '◀ Orqaga', callback_data: 'home'
+                            }
+                        ]
+                    ]
+                }
+            }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+
+        }
         if (msg.data === 'abuteam') {
-            await bot.editMessageText(`Jamoaga qabul ochishdan avval yangiliklar kiritildi, xo'sh jamoaga qo'shilgan odam qanday yo'nalishlarni o'rganadi: 
-                                        \n\n🔘 Education (kursda yozib olingan darsliklar + 6 strategiya bo'yicha praktikum darslar) 
-                                        \n🔘 Newsroom (Joseph Crypto makroekonomika va umuman fundament yangiliklar bo'yicha tahlillari) 
-                                        \n🔘 Signal (Abu Juvayriya va Firnas tomonidan altkoinlar bo'yicha signallar) 
-                                        \n🔘 Jamoa oldi bollari (o'quvchilar o'zlarining tahlillari va signallari bilan bo'lishadigan bo'lim - profi treyder bo'lib shakllanishni eng qaynoq yeri) 
-                                        \nQo'shimcha keyslar: \nhttps://t.me/firnascrypto/5320?single \nhttps://t.me/firnascrypto/s/128 \nhttps://t.me/firnascrypto/5759
-                                        \n\n❗️Jamoaga qo'shilish muddati cheklanmaydi, qo'shimcha to'lovlar yo'q
-                                        \nJamoaga qo'shilish - 250 USDT
-            `, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-            bot.editMessageReplyMarkup({
+            await bot.sendPhoto(msg.message.chat.id, './firnasteam.jpg', {caption: `
+                🔻Firnas jamoasi - NIMA DEGANI VA KIMLAR UCHUN? 
+                \nFirnas muxlislari kanalda o'z analizlari va kriptotahlillarini ulashib borishida aynan fundamental yo'nalishda jonli darslar va jamoa bo'lishi talablari bo'lgani bois biz jamoani bir-necha bosqichlar bilan tuzdik ☑️
+                \n🔹JAMOA - Birinchi bosqish: 5 fevral: 2 oylik onlayn kurs 
+                \n🔸JAMOA - Ikkinchi bosqich: Onlayn kurs jarayonida va keyin altcoinlar bo'yicha research. 
+                \nJAMOA - Uchinchi bosqich: Jamoada kriptotreyding va fundamentalni o'rganish uchun barcha darslik va materiallar
+                \nJamoaga to'lov bir marttalik va muddati cheklanmagan - 280 USDT/$    
+            `,
+            reply_markup: {
                 inline_keyboard: [
                     [
                         {
-                            text: 'To\'lovni amalga oshirish', callback_data: 'abuteampay'
+                            text: 'To\'lovni amalga oshirish', callback_data: 'abuteampay2'
                         }
                     ],
                     [
                         {
-                            text: '◀ Orqaga', callback_data: 'home'
+                            text: '◀ Orqaga', callback_data: 'home2'
                         }
                     ]
                 ]
-            }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+            }})
+            // await bot.editMessageText(`Jamoaga qabul ochishdan avval yangiliklar kiritildi, xo'sh jamoaga qo'shilgan odam qanday yo'nalishlarni o'rganadi: 
+            //                             \n\n🔘 Education (kursda yozib olingan darsliklar + 6 strategiya bo'yicha praktikum darslar) 
+            //                             \n🔘 Newsroom (Joseph Crypto makroekonomika va umuman fundament yangiliklar bo'yicha tahlillari) 
+            //                             \n🔘 Signal (Abu Juvayriya va Firnas tomonidan altkoinlar bo'yicha signallar) 
+            //                             \n🔘 Jamoa oldi bollari (o'quvchilar o'zlarining tahlillari va signallari bilan bo'lishadigan bo'lim - profi treyder bo'lib shakllanishni eng qaynoq yeri) 
+            //                             \nQo'shimcha keyslar: \nhttps://t.me/firnascrypto/5320?single \nhttps://t.me/firnascrypto/s/128 \nhttps://t.me/firnascrypto/5759
+            //                             \n\n❗️Jamoaga qo'shilish muddati cheklanmaydi, qo'shimcha to'lovlar yo'q
+            //                             \nJamoaga qo'shilish - 250 USDT
+            // `, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+            // bot.editMessageReplyMarkup({
+            //     inline_keyboard: [
+            //         [
+            //             {
+            //                 text: 'To\'lovni amalga oshirish', callback_data: 'abuteampay'
+            //             }
+            //         ],
+            //         [
+            //             {
+            //                 text: '◀ Orqaga', callback_data: 'home'
+            //             }
+            //         ]
+            //     ]
+            // }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
         }
-        // if (msg.data === 'carusel') {
-        //     await bot.editMessageText(`Ushbu kanal Abu Juvayriya va Firnas bilan birgalikda o'zlarining savdo g'oyalarini, qaysi altcoinlarga kirayotgani va sotishlarni aytib turishadi.  \n\n\nBiz ushbu kanalni - ish bilan band yoki yangilar uchun tavsiya qilamiz. Sizdan kapitalni bizning tavsiyaga rioya qilib boshqarish. \n\n\nTariflar bilan tanishing↙️ \n\n3 oylik obuna🔰 99.00 USDT \n\n1 yillik obuna🔰 250.00 USDT`, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        //     bot.editMessageReplyMarkup({
-        //         inline_keyboard: [
-        //             [
-        //                 {
-        //                     text: 'To\'lovni amalga oshirish', callback_data: 'abuteampay'
-        //                 }
-        //             ],
-        //             [
-        //                 {
-        //                     text: '◀ Orqaga', callback_data: 'home'
-        //                 }
-        //             ]
-        //         ]
-        //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        // }
         if (msg.data === 'grouponlineteam') {
-            await bot.editMessageText(`🔰 Ayni vaqtda jamoaviy onlayn-kurs bizda yo'q!)`, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-            bot.editMessageReplyMarkup({
+            // await bot.editMessageText(`🔰 Ayni vaqtda jamoaviy onlayn-kurs bizda yo'q!)`, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+            await bot.sendPhoto(msg.message.chat.id, './firnasteam.jpg', {caption: `
+                🔻Firnas jamoasi - NIMA DEGANI VA KIMLAR UCHUN? 
+                \nFirnas muxlislari kanalda o'z analizlari va kriptotahlillarini ulashib borishida aynan fundamental yo'nalishda jonli darslar va jamoa bo'lishi talablari bo'lgani bois biz jamoani bir-necha bosqichlar bilan tuzdik ☑️
+                \n🔹JAMOA - Birinchi bosqish: 5 fevral: 2 oylik onlayn kurs 
+                \n🔸JAMOA - Ikkinchi bosqich: Onlayn kurs jarayonida va keyin altcoinlar bo'yicha research. 
+                \nJAMOA - Uchinchi bosqich: Jamoada kriptotreyding va fundamentalni o'rganish uchun barcha darslik va materiallar
+                \nJamoaga to'lov bir marttalik va muddati cheklanmagan - 280 USDT/$    
+            `,
+            reply_markup: {
                 inline_keyboard: [
                     [
                         {
-                            text: '◀ Orqaga', callback_data: 'tradingcours'
+                            text: '◀ Orqaga', callback_data: 'tradingcours2'
                         }
                     ]
                 ]
-            }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+            }})
         }
         if (msg.data === 'indivcours') {
             await bot.editMessageText(`🔰 Ushbu yo'nalishda Firnas bilan treyding va kriptovalyutalarni o'rganish imkoniyati mavjud. Aynan xozir ushbu yo'nalishdagi kurs bo'yicha ma'lumotni menejerdan so'rashingizni iltimos qilib qolamiz.`, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
@@ -327,18 +393,34 @@ const start = async () => {
                 ]
             }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
         }
-        // if (msg.data === 'help') {
-        //     await bot.editMessageText(`🔰Ushbu bot @firnascrypto kanaliga tegishlidir \n\n@firnascrypto - Firnas K. o'zining treyding va kriptovalyutlarga bog'liq fikrlarini ulashib boradigan asosiy kanal, shuningdek jamoasi bilan tuzgan boshqa loyihalari bilan tanishing⤵️ \n\n@Crypto62481 - Crypto va Web3'ga oid so'nggi yangiliklarni ulashib boruvchi kanal. \n\n@hukmcrypto_bot - Kriptovalyutalar hukmini tekshirish uchun bot (manbalari keltirilgan, 500+ kriptovalyuta, 13 fatvo) \n\nhttps://t.me/+QYhjyS_wHIZiMjRi (NEO CHAT) \nTreyding, altcoinlar va umuman fikr alishish hamda Firnas bilan suhbat uchun chat. \n\nYuqoridagi loyihalar barchasi bepuldir, pullik guruhlarda boshqa mutahassislar va materiallar joylangani bilan farqlanib turadi, botdan foydalanishda quyidagi qoidalar bilan tanishing: \nhttps://telegra.ph/firnascryptobotqoidalar-12-01 \n\nAdminlar bilan bog'lanish uchun: \n@firnas_eth / @feedbackfirnasbot \n\n(❕Iltimos, adminlar bilan ish borasida bog'laning, treyding va birjalar bo'yicha, tehnik savollar uchun NEO CHAT ga murojaat qiling)`, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        //     bot.editMessageReplyMarkup({
-        //         inline_keyboard: [
-        //             [
-        //                 {
-        //                     text: '◀ Orqaga', callback_data: 'home'
-        //                 }
-        //             ]
-        //         ]
-        //     }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-        // }
+        if (msg.data === 'abuteampay2') {
+            await bot.sendMessage(msg.message.chat.id, "Xush kelibsiz! \nO'zingizga kerakli bo'limni tanlang ↙️", {
+                reply_markup: {
+                    inline_keyboard: [  
+                        [
+                            {
+                                text: 'USDT / TRC20', callback_data: 'abutrc20'
+                            }
+                        ],
+                        [
+                            {
+                                text: 'USDT / Polygon', callback_data: 'abupolygon'
+                            }
+                        ],
+                        [
+                            {
+                                text: 'USDT / Solana', callback_data: 'abusolana'
+                            }
+                        ],
+                        [
+                            {
+                                text: '◀ Orqaga', callback_data: 'home'
+                            }
+                        ]
+                    ]
+                }
+            }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+        }
         if (msg.data === 'help') {
             await bot.editMessageText(`🔰 Menejer bilan bog'lanish: \n\n@firnas_eth`, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
             bot.editMessageReplyMarkup({
