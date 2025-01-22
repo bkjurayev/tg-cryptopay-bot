@@ -265,6 +265,11 @@ const start = async () => {
                 inline_keyboard: [
                     [
                         {
+                            text: 'To\'lovni amalga oshirish', callback_data: 'abuteampay2'
+                        }
+                    ],
+                    [
+                        {
                             text: '◀ Orqaga', callback_data: 'tradingcours2'
                         }
                     ]
