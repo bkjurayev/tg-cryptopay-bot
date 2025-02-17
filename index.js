@@ -206,12 +206,15 @@ const start = async () => {
         }
         if (msg.data === 'abuteam') {
             await bot.sendPhoto(msg.message.chat.id, './firnasteam.jpg', {caption: `
-                🔻Firnas jamoasi - NIMA DEGANI VA KIMLAR UCHUN? 
-                \nFirnas muxlislari kanalda o'z analizlari va kriptotahlillarini ulashib borishida aynan fundamental yo'nalishda jonli darslar va jamoa bo'lishi talablari bo'lgani bois biz jamoani bir-necha bosqichlar bilan tuzdik ☑️
-                \n🔹JAMOA - Birinchi bosqish: 5 fevral: 2 oylik onlayn kurs 
-                \n🔸JAMOA - Ikkinchi bosqich: Onlayn kurs jarayonida va keyin altcoinlar bo'yicha research. 
-                \nJAMOA - Uchinchi bosqich: Jamoada kriptotreyding va fundamentalni o'rganish uchun barcha darslik va materiallar
-                \nJamoaga to'lov bir marttalik va muddati cheklanmagan - 280 USDT/$    
+                Jamoa - qanday afzalliklari mavjud? 
+                \n✔️ Trading kurs: 15+ videodarslik va strimlar orqali kriptoni noldan o‘rganing.
+                \n✔️ Jonli strimlar: Kriptobozor yangiliklari va tajriba oshirish uchun muntazam jonli efirlar.
+                \n✔️ Jamoa | Aloqa: 2+ yillik tajribaga ega a&rsquo;zolar bilan fikr almashing, savollaringizni bering. 
+                \n✔️ Signal/G‘oyalar: Cheklanmagan imkoniyatlar va foydali tahlillar.
+                \n✔️ Research/Invest: Fomoga berilmang, fundamental jihatdan kuchli altcoinlarga invest qiling. 
+                \n✔️ Halollik - ustuvor qadriyat: Gambling, derivativ va foreks yo‘q - faqat halol savdo!
+                \n✔️ Cheklanmagan muddat: Kurs va kontentlardan doimiy foydalanish imkoniyati.
+                \n\n💲Bir marttalik to'lov: 400 USDT/$\n🟰 Bo‘lib to‘lash imkoni mavjud!
             `,
             reply_markup: {
                 inline_keyboard: [
