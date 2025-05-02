@@ -1,14 +1,10 @@
+require('dotenv').config()
 const TelegramApi = require('node-telegram-bot-api')
-const InlineKeyboardButton= require('node-telegram-bot-api')
+const InlineKeyboardButton = require('node-telegram-bot-api')
 const InlineKeyboardMarkup = require('node-telegram-bot-api')
+const axios = require('axios');
 
-const CHAT_ID = "-4777464657";
-// const CHAT_ID = "-1002013639929";
-// const CHAT_ID = "-1001792646372";
-const token = '6082876218:AAF1ejYXcJSgS_NFbrkKFjnwoOw-2p4uEO8' //main bot
-// const token = '5971034672:AAF1yrc_2IZjjOyqbfjalyD6wBlAsoF7RsA' //labitintinfobot
-// const token = '7058006450:AAHo_cdPG24GetUQM_jmX80GMMLxFOGlEPI' //euromigrantuz
-const bot = new TelegramApi(token, { polling: true })
+const bot = new TelegramApi(process.env.TOKEN, { polling: true })
 
 let userCorrectly = ''
 let isPaid = false
@@ -21,7 +17,7 @@ const start = async () => {
 
     bot.on('photo', async msg => {
         userCorrectly = msg.chat.id
-        bot.sendPhoto(CHAT_ID, msg.photo[msg.photo.length - 1].file_id, {
+        bot.sendPhoto(process.env.CHAT_ID, msg.photo[msg.photo.length - 1].file_id, {
             reply_markup: {
                 inline_keyboard: [
                     [
@@ -64,20 +60,20 @@ const start = async () => {
                             ],
                             [
                                 {
-                                    text: '🔍 Kriptovalyutani tekshirish',url: 't.me/HukmCrypto_bot'
+                                    text: '🔍 Kriptovalyutani tekshirish', url: 't.me/HukmCrypto_bot'
                                 }
                             ],
                             [
                                 {
-                                    text: `❓ Menejer bilan bog'lanish`,url: 't.me/Firnas_eth'
+                                    text: `❓ Menejer bilan bog'lanish`, url: 't.me/Firnas_eth'
                                 }
                             ],
                             [
                                 {
-                                    text: `NEO`,url: 'https://t.me/layergroupcrypto'
+                                    text: `NEO`, url: 'https://t.me/layergroupcrypto'
                                 },
                                 {
-                                    text: `YOUTUBE`,url: 'https://youtube.com/@tradewithmuslim?feature=shared' 
+                                    text: `YOUTUBE`, url: 'https://youtube.com/@tradewithmuslim?feature=shared'
                                 }
                             ],
                         ]
@@ -116,12 +112,12 @@ const start = async () => {
                     ],
                     [
                         {
-                            text: '🔍 Kriptovalyutani tekshirish',url: 't.me/HukmCrypto_bot'
+                            text: '🔍 Kriptovalyutani tekshirish', url: 't.me/HukmCrypto_bot'
                         }
                     ],
                     [
                         {
-                            text: `❓ Menejer bilan bog'lanish`,url: 't.me/Firnas_eth'
+                            text: `❓ Menejer bilan bog'lanish`, url: 't.me/Firnas_eth'
                         }
                     ]
                 ]
@@ -144,12 +140,12 @@ const start = async () => {
                         ],
                         [
                             {
-                                text: '🔍 Kriptovalyutani tekshirish',url: 't.me/HukmCrypto_bot'
+                                text: '🔍 Kriptovalyutani tekshirish', url: 't.me/HukmCrypto_bot'
                             }
                         ],
                         [
                             {
-                                text: `❓ Menejer bilan bog'lanish`,url: 't.me/Firnas_eth'
+                                text: `❓ Menejer bilan bog'lanish`, url: 't.me/Firnas_eth'
                             }
                         ]
                     ]
@@ -205,7 +201,8 @@ const start = async () => {
 
         }
         if (msg.data === 'abuteam') {
-            await bot.sendPhoto(msg.message.chat.id, './firnasteam.jpg', {caption: `
+            await bot.sendPhoto(msg.message.chat.id, './firnasteam.jpg', {
+                caption: `
                 Jamoa - qanday afzalliklari mavjud? 
                 \n✔️ Trading kurs: 15+ videodarslik va strimlar orqali kriptoni noldan o‘rganing.
                 \n✔️ Jonli strimlar: Kriptobozor yangiliklari va tajriba oshirish uchun muntazam jonli efirlar.
@@ -216,47 +213,25 @@ const start = async () => {
                 \n✔️ Cheklanmagan muddat: Kurs va kontentlardan doimiy foydalanish imkoniyati.
                 \n\n💲Bir marttalik to'lov: 400 USDT/$\n🟰 Bo‘lib to‘lash imkoni mavjud!
             `,
-            reply_markup: {
-                inline_keyboard: [
-                    [
-                        {
-                            text: 'To\'lovni amalga oshirish', callback_data: 'abuteampay2'
-                        }
-                    ],
-                    [
-                        {
-                            text: '◀ Orqaga', callback_data: 'home2'
-                        }
+                reply_markup: {
+                    inline_keyboard: [
+                        [
+                            {
+                                text: 'To\'lovni amalga oshirish', callback_data: 'abuteampay2'
+                            }
+                        ],
+                        [
+                            {
+                                text: '◀ Orqaga', callback_data: 'home2'
+                            }
+                        ]
                     ]
-                ]
-            }})
-            // await bot.editMessageText(`Jamoaga qabul ochishdan avval yangiliklar kiritildi, xo'sh jamoaga qo'shilgan odam qanday yo'nalishlarni o'rganadi: 
-            //                             \n\n🔘 Education (kursda yozib olingan darsliklar + 6 strategiya bo'yicha praktikum darslar) 
-            //                             \n🔘 Newsroom (Joseph Crypto makroekonomika va umuman fundament yangiliklar bo'yicha tahlillari) 
-            //                             \n🔘 Signal (Abu Juvayriya va Firnas tomonidan altkoinlar bo'yicha signallar) 
-            //                             \n🔘 Jamoa oldi bollari (o'quvchilar o'zlarining tahlillari va signallari bilan bo'lishadigan bo'lim - profi treyder bo'lib shakllanishni eng qaynoq yeri) 
-            //                             \nQo'shimcha keyslar: \nhttps://t.me/firnascrypto/5320?single \nhttps://t.me/firnascrypto/s/128 \nhttps://t.me/firnascrypto/5759
-            //                             \n\n❗️Jamoaga qo'shilish muddati cheklanmaydi, qo'shimcha to'lovlar yo'q
-            //                             \nJamoaga qo'shilish - 250 USDT
-            // `, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-            // bot.editMessageReplyMarkup({
-            //     inline_keyboard: [
-            //         [
-            //             {
-            //                 text: 'To\'lovni amalga oshirish', callback_data: 'abuteampay'
-            //             }
-            //         ],
-            //         [
-            //             {
-            //                 text: '◀ Orqaga', callback_data: 'home'
-            //             }
-            //         ]
-            //     ]
-            // }, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
+                }
+            })
         }
         if (msg.data === 'grouponlineteam') {
-            // await bot.editMessageText(`🔰 Ayni vaqtda jamoaviy onlayn-kurs bizda yo'q!)`, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
-            await bot.sendPhoto(msg.message.chat.id, './firnasteam.jpg', {caption: `
+            await bot.sendPhoto(msg.message.chat.id, './firnasteam.jpg', {
+                caption: `
                 🔻Firnas jamoasi - NIMA DEGANI VA KIMLAR UCHUN? 
                 \nFirnas muxlislari kanalda o'z analizlari va kriptotahlillarini ulashib borishida aynan fundamental yo'nalishda jonli darslar va jamoa bo'lishi talablari bo'lgani bois biz jamoani bir-necha bosqichlar bilan tuzdik ☑️
                 \n🔹JAMOA - Birinchi bosqish: 5 fevral: 2 oylik onlayn kurs 
@@ -264,20 +239,21 @@ const start = async () => {
                 \nJAMOA - Uchinchi bosqich: Jamoada kriptotreyding va fundamentalni o'rganish uchun barcha darslik va materiallar
                 \nJamoaga to'lov bir marttalik va muddati cheklanmagan - 280 USDT/$    
             `,
-            reply_markup: {
-                inline_keyboard: [
-                    [
-                        {
-                            text: 'To\'lovni amalga oshirish', callback_data: 'abuteampay2'
-                        }
-                    ],
-                    [
-                        {
-                            text: '◀ Orqaga', callback_data: 'tradingcours2'
-                        }
+                reply_markup: {
+                    inline_keyboard: [
+                        [
+                            {
+                                text: 'To\'lovni amalga oshirish', callback_data: 'abuteampay2'
+                            }
+                        ],
+                        [
+                            {
+                                text: '◀ Orqaga', callback_data: 'tradingcours2'
+                            }
+                        ]
                     ]
-                ]
-            }})
+                }
+            })
         }
         if (msg.data === 'indivcours') {
             await bot.editMessageText(`🔰 Ushbu yo'nalishda Firnas bilan treyding va kriptovalyutalarni o'rganish imkoniyati mavjud. Aynan xozir ushbu yo'nalishdagi kurs bo'yicha ma'lumotni menejerdan so'rashingizni iltimos qilib qolamiz.`, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
@@ -285,7 +261,7 @@ const start = async () => {
                 inline_keyboard: [
                     [
                         {
-                            text: `❓ Menejer bilan bog'lanish`,url: 't.me/Firnas_eth'
+                            text: `❓ Menejer bilan bog'lanish`, url: 't.me/Firnas_eth'
                         }
                     ],
                     [
@@ -299,7 +275,7 @@ const start = async () => {
         if (msg.data === 'tariflar') {
             await bot.editMessageText(`To'lov uchun rekvizitlar:`, { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
             bot.editMessageReplyMarkup({
-                inline_keyboard: [  
+                inline_keyboard: [
                     [
                         {
                             text: 'USDT/TRC20🔴', callback_data: 'abutrc20'
@@ -377,7 +353,7 @@ const start = async () => {
         if (msg.data === 'abuteampay') {
             await bot.editMessageText('O\'zingizga qulay to\'lov rekvizitini tanlang: ', { message_id: msg.message.message_id, chat_id: msg.message.chat.id })
             bot.editMessageReplyMarkup({
-                inline_keyboard: [  
+                inline_keyboard: [
                     [
                         {
                             text: 'USDT / TRC20', callback_data: 'abutrc20'
@@ -404,7 +380,7 @@ const start = async () => {
         if (msg.data === 'abuteampay2') {
             await bot.sendMessage(msg.message.chat.id, "Xush kelibsiz! \nO'zingizga kerakli bo'limni tanlang ↙️", {
                 reply_markup: {
-                    inline_keyboard: [  
+                    inline_keyboard: [
                         [
                             {
                                 text: 'USDT / TRC20', callback_data: 'abutrc20'
@@ -464,6 +440,26 @@ const start = async () => {
             await bot.sendMessage(userCorrectly, 'Afsuski to\'lov qabul qilinmaganligi sabablik qayta urinib ko\'rishingizni so\'raymiz!)')
         }
     })
+
+    // Новое описание
+    const description = '...';
+    // URL для API
+    // const url = `https://api.telegram.org/bot${token}/setMyDescription`;
+    const url = `https://api.telegram.org/bot${process.env.TOKEN}/setMyShortDescription`;
+
+    // Отправляем запрос для изменения описания
+    axios.post(url, { description })
+        .then(response => {
+            if (response.status === 200) {
+                console.log('Описание успешно изменено!');
+            } else {
+                console.log('Ошибка при изменении описания:', response.data);
+            }
+        })
+        .catch(error => {
+            console.error('Ошибка запроса:', error);
+        }
+    );
 }
 
 start()
